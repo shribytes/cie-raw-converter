@@ -28,9 +28,11 @@
                     checkbox.addEventListener('change', function() {
                         doingAS = !doingAS;
                         if (doingAS) {
-                            document.getElementById("AStarContainer").style.visibility = 'collapse';
+                            document.getElementById("AStarContainer").style.visibility = 'hidden';
+                            document.getElementById("AStar").value = "1";
                         } else {
                             document.getElementById("AStarContainer").style.visibility = 'visible';
+                            document.getElementById("AStar").value = "";
                             //document.getElementById("AStarContainer").style.width = "50%";
                             //document.getElementById("AStar").style.width = "100%";
                         }
