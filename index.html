@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PUM To Raw Mark Converter</title>
+    <link rel="stylesheet" href="raw-converter.css">
+</head>
+<body>
+    <h1 id="topHeading">PUM To Raw Mark Converter</h1>
+
+
+    <form id="rawForm" onsubmit="calculateRaw(event)">
+        <table>
+            <tr>
+                <td class="gradeLabel" style="font-size: 16px;"><label for="PUM">The result you got:</label></td>
+                <td><input type="number" id="PUM" name="PUM"></td>
+            </tr>
+            <tr>
+                <td style="font-size: 16px;" class="gradeLabel"><label for="asLevel">Calculate for AS Level?:</label></td>
+                <td>
+                    <input type="checkbox" id="myCheckbox"> 
+                    <script>
+                    var doingAS = false;
+
+                    var checkbox = document.getElementById('myCheckbox');
+
+                    checkbox.addEventListener('change', function() {
+                        doingAS = !doingAS;
+                        if (doingAS) {
+                            document.getElementById("AStarContainer").style.visibility = 'collapse';
+                        } else {
+                            document.getElementById("AStarContainer").style.visibility = 'visible';
+                            //document.getElementById("AStarContainer").style.width = "50%";
+                            //document.getElementById("AStar").style.width = "100%";
+                        }
+                    });
+                    </script>
+
+                </td>
+            </tr>
+            <tr>
+                <td class="gradeLabel" style="font-size: 16px;"><label for="highest">Total Marks (Highest Possible):</label></td>
+                <td><input type="number" id="highest" name="highest"></td>
+            </tr>
+            <tr>
+                <td class="gradeLabel"><label for="AStar" style="font-size: 16px;">A*:</label></td>
+                <td id="AStarContainer"><input type="number" id="AStar" name="AStar"></td>
+            </tr>
+            <tr>
+                <td class="gradeLabel"><label for="A">A:</label></td>
+                <td><input type="number" id="A" name="A"><br></td>
+            </tr>
+            <tr>
+                <td class="gradeLabel"><label for="B">B:</label></td>
+                <td><input type="number" id="B" name="B"></td>
+            </tr>
+            <tr>
+                <td class="gradeLabel"><label for="C">C:</label></td>
+                <td><input type="number" id="C" name="C"></td>
+            </tr>
+            <tr>
+                <td class="gradeLabel"><label for="D">D:</label></td>
+                <td><input type="number" id="D" name="D"></td>
+            </tr>
+            <tr>
+                <td class="gradeLabel"><label for="E">E:</label></td>
+                <td><input type="number" id="E" name="E"></td>
+            </tr>
+            
+            <tr>
+                <td style="font-size: 30px" colspan="2"><input type="submit" value="Calculate"></td>
+            </tr>
+            <tr>
+                <td id="result" class="gradeLabel" colspan="2" style="font-size: 16px"></td>
+            </tr>
+        </table>
+
+        <script>
+            function calculateRaw(event) {
+                event.preventDefault(); // Prevent form submission
+
+                // Get input field values
+                var hgihestValue = parseInt(document.getElementById('highest').value) || 0;
+                var AStarValue = parseInt(document.getElementById('AStar').value) || 0;
+                var AValue = parseInt(document.getElementById('A').value) || 0;
+                var BValue = parseInt(document.getElementById('B').value) || 0;
+                var CValue = parseInt(document.getElementById('C').value) || 0;
+                var DValue = parseInt(document.getElementById('D').value) || 0;
+                var EValue = parseInt(document.getElementById('E').value) || 0;
+                var PUMValue = parseInt(document.getElementById('PUM').value) || 0;
+                var rawList = [hgihestValue, AStarValue, AValue, BValue, CValue,
+                                DValue, EValue, 0];
+                var allEntered = true;
+                for (var i=0; i<rawList.length-1; i++) {
+                    if (rawList[i] == 0) {
+                        allEntered = false;
+                        break
+                    }
+                }
+                if (allEntered) {
+                    if (PUMValue>=80 && doingAS) {
+                        var n1Mark = rawList[2];
+                        var n1PUM = 80;
+                        var n2Mark = rawList[0]
+                        var n2PUM = 100
+                    } else {
+
+                        var n1Mark = rawList[10 - Math.floor(PUMValue/10)];
+                        var n1PUM = Math.floor(PUMValue/10)*10;
+                        var n2Mark = rawList[9 - Math.floor(PUMValue/10)];
+                        var n2PUM = Math.floor(PUMValue/10)*10 + 10;
+                    }
+
+                    rawMark = (PUMValue - n1PUM)*(n2Mark - n1Mark)/(n2PUM - n1PUM) + n1Mark
+
+                    document.getElementById('result').textContent = /*`${n1Mark} ${n2Mark} ${n1PUM} ${rawMark}`*/`Your raw mark is ${rawMark}`;
+                } else {
+                    document.getElementById('result').textContent = "Inputs missing or entered as 0";
+                }
+                
+
+            }
+        </script>
+    </form>
+</body>
+</html>

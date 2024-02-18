@@ -1,0 +1,41 @@
+html, body{
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: lightgray;
+    font-family: 'Courier New', Courier, monospace;
+}
+#topHeading {
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-size: 40px;
+    margin: 0;
+    padding: 25px 0 25px 0;
+}
+
+table {
+    width: 98%;
+    margin: 1%;
+}
+td {
+    width: 50%;
+    height: 8vh;
+    font-size: 30px;
+    padding: 5px;
+    text-align: center;
+}
+
+.gradeLabel {
+    color: white;
+    background-color: black;
+}
+
+input {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
