@@ -16,7 +16,7 @@
         <table>
             <tr>
                 <td class="gradeLabel" style="font-size: 16px;"><label for="PUM">PUM Value:</label></td>
-                <td><input type="number" id="PUM" name="PUM"></td>
+                <td><input type="number" id="PUM" name="PUM" step="any"></td>
             </tr>
             <tr>
                 <td style="font-size: 16px;" class="gradeLabel"><label for="asLevel">Calculate Mark for AS Level?:</label></td>
@@ -79,11 +79,10 @@
                 <td id="result" class="gradeLabel" colspan="2" style="font-size: 16px"></td>
             </tr>
             <tr>
-                <td class="gradeLabel" colspan="2" style="font-size: 12px">
-                    PUM (Percentage Uniform Mark) is the value assigned to your CAIE grade.<br>
-                    This value is out of 100 but isn't a true representation of the amount of marks you've received.<br>
-                    This calculator aims to solve the issue. Simply enter your PUM mark and enter the relevant data to get your mark.<br>
-                    NOTE: my calculator has thus far been accurate to &plusmn;1 raw mark. If you find any issues, please let me know.
+                <td class="gradeLabel" colspan="2" style="font-size: 16px">
+                    Learn more at <a href="https://github.com/photonbyte/cie-raw-converter/tree/main#readme">
+                        https://github.com/photonbyte/cie-raw-converter/tree/main#readme
+                    </a>
                 </td>
             </tr>
         </table>
@@ -93,14 +92,14 @@
                 event.preventDefault(); // Prevent form submission
 
                 // Get input field values
-                var hgihestValue = parseInt(document.getElementById('highest').value) || 0;
-                var AStarValue = parseInt(document.getElementById('AStar').value) || 0;
-                var AValue = parseInt(document.getElementById('A').value) || 0;
-                var BValue = parseInt(document.getElementById('B').value) || 0;
-                var CValue = parseInt(document.getElementById('C').value) || 0;
-                var DValue = parseInt(document.getElementById('D').value) || 0;
-                var EValue = parseInt(document.getElementById('E').value) || 0;
-                var PUMValue = parseInt(document.getElementById('PUM').value) || 0;
+                var hgihestValue = parseInt(document.getElementById('highest').value);
+                var AStarValue = parseInt(document.getElementById('AStar').value);
+                var AValue = parseInt(document.getElementById('A').value);
+                var BValue = parseInt(document.getElementById('B').value);
+                var CValue = parseInt(document.getElementById('C').value);
+                var DValue = parseInt(document.getElementById('D').value);
+                var EValue = parseInt(document.getElementById('E').value);
+                var PUMValue = parseFloat(document.getElementById('PUM').value);
                 var rawList = [hgihestValue, AStarValue, AValue, BValue, CValue,
                                 DValue, EValue, 0];
                 var relevantEntred = true;
