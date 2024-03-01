@@ -7,17 +7,19 @@
     <link rel="stylesheet" href="raw-converter.css">
 </head>
 <body>
-    <h1 id="topHeading">PUM To Raw Mark Converter</h1>
+    <div id="topHeading">
+        <h1 style="font-size: 40px;">PUM To Raw Mark Converter</h1>
+    </div>
 
 
     <form id="rawForm" onsubmit="calculateRaw(event)">
         <table>
             <tr>
-                <td class="gradeLabel" style="font-size: 16px;"><label for="PUM">The result you got:</label></td>
+                <td class="gradeLabel" style="font-size: 16px;"><label for="PUM">PUM Value:</label></td>
                 <td><input type="number" id="PUM" name="PUM"></td>
             </tr>
             <tr>
-                <td style="font-size: 16px;" class="gradeLabel"><label for="asLevel">Calculate for AS Level?:</label></td>
+                <td style="font-size: 16px;" class="gradeLabel"><label for="asLevel">Calculate Mark for AS Level?:</label></td>
                 <td>
                     <input type="checkbox" id="myCheckbox"> 
                     <script>
@@ -76,6 +78,14 @@
             <tr>
                 <td id="result" class="gradeLabel" colspan="2" style="font-size: 16px"></td>
             </tr>
+            <tr>
+                <td class="gradeLabel" colspan="2" style="font-size: 12px">
+                    PUM (Percentage Uniform Mark) is the value assigned to your CAIE grade.<br>
+                    This value is out of 100 but isn't a true representation of the amount of marks you've received.<br>
+                    This calculator aims to solve the issue. Simply enter your PUM mark and enter the relevant data to get your mark.<br>
+                    NOTE: my calculator has thus far been accurate to &plusmn;1 raw mark. If you find any issues, please let me know.
+                </td>
+            </tr>
         </table>
 
         <script>
@@ -93,36 +103,36 @@
                 var PUMValue = parseInt(document.getElementById('PUM').value) || 0;
                 var rawList = [hgihestValue, AStarValue, AValue, BValue, CValue,
                                 DValue, EValue, 0];
-                var allEntered = true;
-                for (var i=0; i<rawList.length-1; i++) {
-                    if (rawList[i] == 0) {
-                        allEntered = false;
-                        break
-                    }
+                var relevantEntred = true;
+                if (PUMValue>=80 && doingAS) {
+                    var n1Mark = rawList[2];
+                    var n2Mark = rawList[0]
+                } else {
+                    var n1Mark = rawList[10 - Math.floor(PUMValue/10)];
+                    var n2Mark = rawList[9 - Math.floor(PUMValue/10)];
                 }
-                if (allEntered) {
-                    if (PUMValue>=80 && doingAS) {
-                        var n1Mark = rawList[2];
-                        var n1PUM = 80;
-                        var n2Mark = rawList[0]
-                        var n2PUM = 100
-                    } else {
 
-                        var n1Mark = rawList[10 - Math.floor(PUMValue/10)];
+                if (n1Mark && n2Mark && (n2Mark > n1Mark)) {
+                    if (PUMValue>=80 && doingAS) {
+                        var n1PUM = 80;
+                        var n2PUM = 100;
+                    } else {
                         var n1PUM = Math.floor(PUMValue/10)*10;
-                        var n2Mark = rawList[9 - Math.floor(PUMValue/10)];
                         var n2PUM = Math.floor(PUMValue/10)*10 + 10;
                     }
-
                     rawMark = (PUMValue - n1PUM)*(n2Mark - n1Mark)/(n2PUM - n1PUM) + n1Mark
-
-                    document.getElementById('result').textContent = /*`${n1Mark} ${n2Mark} ${n1PUM} ${rawMark}`*/`Your raw mark is ${rawMark}`;
+                    document.getElementById('result').textContent = /*`${n1Mark} ${n2Mark} ${n1PUM} ${rawMark}`*/`Raw mark: ${rawMark},
+                    Raw Percentage: ${(rawMark/rawList[0]*100).toFixed(3)}%`;
                 } else {
-                    document.getElementById('result').textContent = "Inputs missing or entered as 0";
+                    document.getElementById('result').textContent = "ERROR: Relevant inputs are not provided correctly";
                 }
                 
 
+                
             }
+                
+
+            
         </script>
     </form>
 </body>
