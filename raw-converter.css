@@ -41,6 +41,6 @@ input {
 }
 
 a:link, a:visited {
-  color: blue;
+  color: lightblue;
   text-decoration: underline;
 }
