@@ -9,18 +9,24 @@
 <body>
     <div id="topHeading">
         <h1 style="font-size: 40px;">PUM To Raw Mark Converter</h1>
+        <h1 style="font-size: 20px;">PUM: Percentage Uniform Mark (The mark on your report)</h1>
+        <h1 style="font-size: 20px">Learn how to use at: <a href="https://github.com/photonbyte/cie-raw-converter/blob/main/README.md">
+        <td style="font-size: 20px">Learn how to use at: <a href="https://github.com/photonbyte/cie-raw-converter/blob/main/README.md">
+            https://github.com/photonbyte/cie-raw-converter/blob/main/README.md
+        </a></td>
+        </a></h1>
     </div>
 
 
     <form id="rawForm" onsubmit="calculateRaw(event)">
-        <table>
-            <tr>
-                <td class="gradeLabel" style="font-size: 16px;"><label for="PUM">PUM Value:</label></td>
-                <td><input type="number" id="PUM" name="PUM" step="any"></td>
+        <table>   
+            </tr>
+                <td class="gradeLabel" style="font-size: 16px;"><label for="input">Input:</label></td>
+                <td colspan="2"><input type="number" id="input" name="input" step="any"></td>
             </tr>
             <tr>
                 <td style="font-size: 16px;" class="gradeLabel"><label for="asLevel">Calculate Mark for AS Level?:</label></td>
-                <td>
+                <td colspan="2">
                     <input type="checkbox" id="myCheckbox"> 
                     <script>
                     var doingAS = false;
@@ -45,43 +51,43 @@
             </tr>
             <tr>
                 <td class="gradeLabel" style="font-size: 16px;"><label for="highest">Total Marks (Highest Possible):</label></td>
-                <td><input type="number" id="highest" name="highest"></td>
+                <td colspan="2"><input type="number" id="highest" name="highest"></td>
             </tr>
             <tr>
                 <td class="gradeLabel"><label for="AStar" style="font-size: 16px;">A*:</label></td>
-                <td id="AStarContainer"><input type="number" id="AStar" name="AStar"></td>
+                <td colspan="2" id="AStarContainer"><input type="number" id="AStar" name="AStar"></td>
             </tr>
             <tr>
                 <td class="gradeLabel"><label for="A">A:</label></td>
-                <td><input type="number" id="A" name="A"><br></td>
+                <td colspan="2"><input type="number" id="A" name="A"><br></td>
             </tr>
             <tr>
                 <td class="gradeLabel"><label for="B">B:</label></td>
-                <td><input type="number" id="B" name="B"></td>
+                <td colspan="2"><input type="number" id="B" name="B"></td>
             </tr>
             <tr>
                 <td class="gradeLabel"><label for="C">C:</label></td>
-                <td><input type="number" id="C" name="C"></td>
+                <td colspan="2"><input type="number" id="C" name="C"></td>
             </tr>
             <tr>
                 <td class="gradeLabel"><label for="D">D:</label></td>
-                <td><input type="number" id="D" name="D"></td>
+                <td colspan="2"><input type="number" id="D" name="D"></td>
             </tr>
             <tr>
                 <td class="gradeLabel"><label for="E">E:</label></td>
-                <td><input type="number" id="E" name="E"></td>
+                <td colspan="2"><input type="number" id="E" name="E"></td>
             </tr>
             
             <tr>
-                <td style="font-size: 30px" colspan="2"><input type="submit" value="Calculate"></td>
+                <td style="font-size: 30px" colspan="3"><input type="submit" value="Calculate"></td>
             </tr>
             <tr>
-                <td id="result" class="gradeLabel" colspan="2" style="font-size: 16px"></td>
+                <td id="result" class="gradeLabel" colspan="3" style="font-size: 16px"></td>
             </tr>
             <tr>
-                <td class="gradeLabel" colspan="2" style="font-size: 16px">
-                    Learn more at <a href="https://github.com/photonbyte/cie-raw-converter/blob/main/README.md">
-                        https://github.com/photonbyte/cie-raw-converter/blob/main/README.md
+                <td class="gradeLabel" colspan="3" style="font-size: 16px">
+                    See more of my projects on my GitHub: <a href="https://github.com/photonbyte">
+                        https://github.com/photonbyte
                     </a>
                 </td>
             </tr>
@@ -99,7 +105,7 @@
                 var CValue = parseInt(document.getElementById('C').value);
                 var DValue = parseInt(document.getElementById('D').value);
                 var EValue = parseInt(document.getElementById('E').value);
-                var PUMValue = parseFloat(document.getElementById('PUM').value);
+                var PUMValue = parseFloat(document.getElementById('input').value);
                 var rawList = [hgihestValue, AStarValue, AValue, BValue, CValue,
                                 DValue, EValue, 0];
                 var relevantEntred = true;
