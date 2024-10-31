@@ -1,3 +1,4 @@
+// Declare doingAS outside the DOMContentLoaded to maintain its scope
 let doingAS = false;
 
 // Wait for the DOM to fully load before running any scripts
@@ -9,14 +10,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Toggle visibility of the A* field based on the checkbox state
     checkbox.addEventListener('change', function () {
-        doingAS = !doingAS;
-        if (doingAS) {
-            AStarContainer.style.visibility = 'hidden';
-            AStarInput.value = "1";
-        } else {
-            AStarContainer.style.visibility = 'visible';
-            AStarInput.value = "";
-        }
+        doingAS = checkbox.checked; // Update doingAS based on checkbox state
+        updateAStarVisibility();
     });
 
     // Load JSON data and populate the dropdown
@@ -67,7 +62,7 @@ function populateAttributes() {
     if (selectedItem) {
         // Update doingAS based on the AS attribute
         doingAS = selectedItem.AS === "true";
-        
+
         // Populate each attribute field
         document.getElementById("highest").value = selectedItem.Highest;
         document.getElementById("AStar").value = selectedItem.AStar || "";
@@ -77,17 +72,33 @@ function populateAttributes() {
         document.getElementById("D").value = selectedItem.D;
         document.getElementById("E").value = selectedItem.E;
 
-        // Update visibility of the A* container based on AS attribute
-        const AStarContainer = document.getElementById("AStarContainer");
-        const AStarInput = document.getElementById("AStar");
+        // Update checkbox state based on AS attribute
+        const checkbox = document.getElementById('myCheckbox');
+        checkbox.checked = doingAS; // Reflect the AS status on the checkbox
 
-        if (doingAS) {
-            AStarContainer.style.visibility = 'hidden';
-            checkbox.checked = true;
-            AStarInput.value = "1";
-        } else {
-            AStarContainer.style.visibility = 'visible';
-            checkbox.checked = false;
-        }
+        // Update visibility of the A* container based on AS attribute
+        updateAStarVisibility();
+
+        // Debugging: Log to console to track state
+        console.log(`Selected Code: ${selectedCode}`);
+        console.log(`doingAS: ${doingAS}`);
+        console.log(`Checkbox checked: ${checkbox.checked}`);
+    } else {
+        // Handle case where no item was found
+        console.error(`No item found for selected code: ${selectedCode}`);
+    }
+}
+
+// Function to update the visibility of the A* input based on the checkbox state
+function updateAStarVisibility() {
+    const AStarContainer = document.getElementById("AStarContainer");
+    const AStarInput = document.getElementById("AStar");
+
+    if (doingAS) {
+        AStarContainer.style.visibility = 'hidden';
+        AStarInput.value = "1";
+    } else {
+        AStarContainer.style.visibility = 'visible';
+        AStarInput.value = "";
     }
 }
