@@ -82,9 +82,11 @@ function populateAttributes() {
 
         if (doingAS) {
             AStarContainer.style.visibility = 'hidden';
+            checkbox.checked = true;
             AStarInput.value = "1";
         } else {
             AStarContainer.style.visibility = 'visible';
+            checkbox.checked = false;
         }
     }
 }
