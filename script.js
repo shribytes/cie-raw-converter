@@ -1,6 +1,7 @@
+let doingAS = false;
+
 // Wait for the DOM to fully load before running any scripts
 document.addEventListener("DOMContentLoaded", function () {
-    let doingAS = false;
     const checkbox = document.getElementById('myCheckbox');
     const AStarContainer = document.getElementById("AStarContainer");
     const AStarInput = document.getElementById("AStar");
