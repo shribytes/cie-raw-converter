@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PUM To Raw Mark Converter</title>
     <link rel="stylesheet" href="raw-converter.css">
+    <script type="text/javascript" src="script.js" defer></script>
 </head>
 <body>
     <div id="topHeading">
         <h1 style="font-size: 40px;">PUM To Raw Mark Converter</h1>
         <h1 style="font-size: 20px;">PUM: Percentage Uniform Mark (The mark on your report)</h1>
-        <h1 style="font-size: 20px">Learn how to use at: <a href="https://github.com/shribytes/cie-raw-converter/blob/main/README.md" target="_blank">
-            https://github.com/shribytes/cie-raw-converter/blob/main/README.md
+        <h1 style="font-size: 20px">Learn how to use at: <a href="https://github.com/photonbyte/cie-raw-converter/blob/main/README.md" target="_blank">
+            https://github.com/photonbyte/cie-raw-converter/blob/main/README.md
         </a></h1>
     </div>
 
@@ -22,29 +23,18 @@
                 <td class="gradeLabel" style="font-size: 16px;"><label for="input">Input:</label></td>
                 <td colspan="2"><input type="number" id="input" name="input" step="any"></td>
             </tr>
+        </tr>
+            <td class="gradeLabel" style="font-size: 16px;"><label for="course">Course for session Oct/Nov 2023 v3:</label></td>
+            <td colspan="2">
+                <select id="course" name="course" style="width: 100%; height:100%; text-align: center; font-size: 16px; box-sizing: border-box;">
+                    <option value="">Select a code</option>
+                </select>
+            </td>
+        </tr>
             <tr>
                 <td style="font-size: 16px;" class="gradeLabel"><label for="asLevel">Calculate Mark for AS Level?:</label></td>
                 <td colspan="2">
                     <input type="checkbox" id="myCheckbox"> 
-                    <script>
-                    var doingAS = false;
-
-                    var checkbox = document.getElementById('myCheckbox');
-
-                    checkbox.addEventListener('change', function() {
-                        doingAS = !doingAS;
-                        if (doingAS) {
-                            document.getElementById("AStarContainer").style.visibility = 'hidden';
-                            document.getElementById("AStar").value = "1";
-                        } else {
-                            document.getElementById("AStarContainer").style.visibility = 'visible';
-                            document.getElementById("AStar").value = "";
-                            //document.getElementById("AStarContainer").style.width = "50%";
-                            //document.getElementById("AStar").style.width = "100%";
-                        }
-                    });
-                    </script>
-
                 </td>
             </tr>
             <tr>
@@ -84,8 +74,8 @@
             </tr>
             <tr>
                 <td class="gradeLabel" colspan="3" style="font-size: 16px">
-                    See more of my projects on my GitHub: <a href="https://github.com/shribytes" target="_blank">
-                        https://github.com/shribytes
+                    See more of my projects on my GitHub: <a href="https://github.com/photonbyte" target="_blank">
+                        https://github.com/photonbyte
                     </a>
                 </td>
             </tr>
