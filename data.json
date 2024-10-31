@@ -1,4 +1,4 @@
 [
-    {"Code":"AS Mathematics", "AS":"true", "Highest":"125", "AStar":"-", "A":"108", "B":"77", "C":"60", "D":"50", "E":"40"},
+    {"Code":"AS Mathematics", "AS":"true", "Highest":"125", "AStar":"0", "A":"108", "B":"77", "C":"60", "D":"50", "E":"40"},
     {"Code":"A2 Mathematics", "AS":"false", "Highest":"250", "AStar":"225", "A":"205", "B":"170", "C":"150", "D":"130", "E":"110"}
 ]

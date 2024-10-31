@@ -65,7 +65,7 @@ function populateAttributes() {
 
         // Populate each attribute field
         document.getElementById("highest").value = selectedItem.Highest;
-        document.getElementById("AStar").value = selectedItem.AStar || "";
+        document.getElementById("AStar").value = selectedItem.AStar;
         document.getElementById("A").value = selectedItem.A;
         document.getElementById("B").value = selectedItem.B;
         document.getElementById("C").value = selectedItem.C;
