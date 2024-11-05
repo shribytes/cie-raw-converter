@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,38 +8,44 @@
     <link rel="stylesheet" href="raw-converter.css">
     <script type="text/javascript" src="script.js" defer></script>
 </head>
+
 <body>
     <div id="topHeading">
-        <h1 style="font-size: 40px;">PUM To Raw Mark Converter</h1>
-        <h1 style="font-size: 20px;">PUM: Percentage Uniform Mark (The mark on your report)</h1>
-        <h1 style="font-size: 20px">Learn how to use at: <a href="https://github.com/photonbyte/cie-raw-converter/blob/main/README.md" target="_blank">
-            https://github.com/photonbyte/cie-raw-converter/blob/main/README.md
-        </a></h1>
+        <p id="title"><strong id="title">PUM To Raw Mark Converter</strong></p>
+        <p><strong>PUM: Percentage Uniform Mark (The mark on your report)</strong></p>
+        <p><strong>Learn how to use at: <a
+                href="https://github.com/photonbyte/cie-raw-converter/blob/main/README.md" target="_blank">
+                https://github.com/photonbyte/cie-raw-converter/blob/main/README.md
+            </a></strong></p>
     </div>
 
 
     <form id="rawForm" onsubmit="calculateRaw(event)">
-        <table>   
+        <table>
             </tr>
-                <td class="gradeLabel" style="font-size: 16px;"><label for="input">Input:</label></td>
-                <td colspan="2"><input type="number" id="input" name="input" step="any"></td>
+            <td class="gradeLabel2"><label for="input">Input:</label></td>
+            <td colspan="2"><input type="number" id="input" name="input" step="any"></td>
             </tr>
-        </tr>
-            <td class="gradeLabel" style="font-size: 16px;"><label for="course">Course for session Oct/Nov 2023 v3 (Placeholder):</label></td>
+            </tr>
+            <td class="gradeLabel2"><label for="course">Course for session Oct/Nov 2023 v3
+                    (Placeholder):</label></td>
             <td colspan="2">
-                <select id="course" name="course" style="width: 100%; height:100%; text-align: center; font-size: 16px; box-sizing: border-box;">
+                <select id="course" name="course"
+                    style="width: 100%; height:100%; text-align: center; font-size: 16px; box-sizing: border-box;">
                     <option value="">Select a code</option>
                 </select>
             </td>
-        </tr>
+            </tr>
             <tr>
-                <td style="font-size: 16px;" class="gradeLabel"><label for="asLevel">Calculate Mark for AS Level?:</label></td>
+                <td class="gradeLabel2"><label for="asLevel">Calculate Mark for AS
+                        Level?:</label></td>
                 <td colspan="2">
-                    <input type="checkbox" id="myCheckbox"> 
+                    <input type="checkbox" id="myCheckbox">
                 </td>
             </tr>
             <tr>
-                <td class="gradeLabel" style="font-size: 16px;"><label for="highest">Total Marks (Highest Possible):</label></td>
+                <td class="gradeLabel2"><label for="highest">Total Marks (Highest
+                        Possible):</label></td>
                 <td colspan="2"><input type="number" id="highest" name="highest"></td>
             </tr>
             <tr>
@@ -65,7 +72,7 @@
                 <td class="gradeLabel"><label for="E">E:</label></td>
                 <td colspan="2"><input type="number" id="E" name="E"></td>
             </tr>
-            
+
             <tr>
                 <td style="font-size: 30px" colspan="3"><input type="submit" value="Calculate"></td>
             </tr>
@@ -95,38 +102,39 @@
                 var EValue = parseInt(document.getElementById('E').value);
                 var PUMValue = parseFloat(document.getElementById('input').value);
                 var rawList = [hgihestValue, AStarValue, AValue, BValue, CValue,
-                                DValue, EValue, 0];
+                    DValue, EValue, 0];
                 var relevantEntred = true;
-                if (PUMValue>=80 && doingAS) {
+                if (PUMValue >= 80 && doingAS) {
                     var n1Mark = rawList[2];
                     var n2Mark = rawList[0]
                 } else {
-                    var n1Mark = rawList[10 - Math.floor(PUMValue/10)];
-                    var n2Mark = rawList[9 - Math.floor(PUMValue/10)];
+                    var n1Mark = rawList[10 - Math.floor(PUMValue / 10)];
+                    var n2Mark = rawList[9 - Math.floor(PUMValue / 10)];
                 }
 
                 if (n1Mark && n2Mark && (n2Mark > n1Mark)) {
-                    if (PUMValue>=80 && doingAS) {
+                    if (PUMValue >= 80 && doingAS) {
                         var n1PUM = 80;
                         var n2PUM = 100;
                     } else {
-                        var n1PUM = Math.floor(PUMValue/10)*10;
-                        var n2PUM = Math.floor(PUMValue/10)*10 + 10;
+                        var n1PUM = Math.floor(PUMValue / 10) * 10;
+                        var n2PUM = Math.floor(PUMValue / 10) * 10 + 10;
                     }
-                    rawMark = (PUMValue - n1PUM)*(n2Mark - n1Mark)/(n2PUM - n1PUM) + n1Mark
+                    rawMark = (PUMValue - n1PUM) * (n2Mark - n1Mark) / (n2PUM - n1PUM) + n1Mark
                     document.getElementById('result').textContent = /*`${n1Mark} ${n2Mark} ${n1PUM} ${rawMark}`*/`Raw mark: ${rawMark},
-                    Raw Percentage: ${(rawMark/rawList[0]*100).toFixed(3)}%`;
+                    Raw Percentage: ${(rawMark / rawList[0] * 100).toFixed(3)}%`;
                 } else {
                     document.getElementById('result').textContent = "ERROR: Relevant inputs are not provided correctly";
                 }
-                
 
-                
+
+
             }
-                
 
-            
+
+
         </script>
     </form>
 </body>
+
 </html>
