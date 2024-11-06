@@ -4,16 +4,16 @@ html, body{
 }
 
 body {
-    background-color: lightgray;
-    font-family: 'Courier New', Courier, monospace;
+    background-color: #777;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 #topHeading {
-    background-color: black;
+    background: linear-gradient(black 90%, #777);
     color: white;
     text-align: center;
     font-size: 20px;
     margin: 0;
-    padding: 25px 0 25px 0;
+    padding: 20px 0 20px 0;
 }
 #title {
     font-size: 40px;
@@ -32,7 +32,8 @@ td {
 
 .gradeLabel, .gradeLabel2 {
     color: white;
-    background-color: black;
+    /*background-color: black;*/
+    background: linear-gradient(to right, #777 0%, black 1%, black 99%, #777 100%);
     width: 50%;
 }
 
@@ -50,6 +51,7 @@ input {
 @media (max-width: 600px) {
     #topHeading {
         font-size: 12px;
+        padding: 10px 0 10px 0;
     }
     #title {
         font-size: 24px;
@@ -59,5 +61,8 @@ input {
     }
     td {
         height: 5.5vh;
+    }
+    .optionText {
+        font-size: 12px;
     }
 }
