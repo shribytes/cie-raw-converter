@@ -32,8 +32,7 @@ td {
 
 .gradeLabel, .gradeLabel2 {
     color: white;
-    /*background-color: black;*/
-    background: linear-gradient(to right, #777 0%, black 1%, black 99%, #777 100%);
+    background-color: black;
     width: 50%;
 }
 
