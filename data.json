@@ -13,7 +13,7 @@
     {"Code":"AS Physics", "AS":"true", "Highest":"", "AStar":"0", "A":"", "B":"", "C":"", "D":"", "E":""},
     {"Code":"AS Psychology", "AS":"true", "Highest":"", "AStar":"0", "A":"", "B":"", "C":"", "D":"", "E":""},
     {"Code":"AS Spanish", "AS":"true", "Highest":"", "AStar":"0", "A":"", "B":"", "C":"", "D":"", "E":""},
-
+    
     {"Code":"A2 Accounting", "A2":"false", "Highest":"", "AStar":"", "A":"", "B":"", "C":"", "D":"", "E":""},
     {"Code":"A2 Biology", "A2":"false", "Highest":"", "AStar":"", "A":"", "B":"", "C":"", "D":"", "E":""},
     {"Code":"A2 Business Studies", "A2":"false", "Highest":"", "AStar":"", "A":"", "B":"", "C":"", "D":"", "E":""},
@@ -27,6 +27,5 @@
     {"Code":"A2 Music", "A2":"false", "Highest":"", "AStar":"", "A":"", "B":"", "C":"", "D":"", "E":""},
     {"Code":"A2 Physics", "A2":"false", "Highest":"", "AStar":"", "A":"", "B":"", "C":"", "D":"", "E":""},
     {"Code":"A2 Psychology", "A2":"false", "Highest":"", "AStar":"", "A":"", "B":"", "C":"", "D":"", "E":""},
-    {"Code":"A2 Spanish", "A2":"false", "Highest":"", "AStar":"", "A":"", "B":"", "C":"", "D":"", "E":""},
-
+    {"Code":"A2 Spanish", "A2":"false", "Highest":"", "AStar":"", "A":"", "B":"", "C":"", "D":"", "E":""}
 ]
