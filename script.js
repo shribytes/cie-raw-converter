@@ -99,6 +99,6 @@ function updateAStarVisibility() {
         AStarInput.value = "1";
     } else {
         AStarContainer.style.visibility = 'visible';
-        AStarInput.value = "";
+        //AStarInput.value = "";
     }
 }
