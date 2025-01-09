@@ -53,41 +53,41 @@ function populateDropdown(data) {
 // Populate the form fields based on the selected dropdown item
 function populateAttributes() {
     const dropdown = document.getElementById("course");
-    const selectedCode = dropdown.value;
+    const selectedCode = dropdown.value.trim(); // Trim spaces for safety
     const data = JSON.parse(dropdown.dataset.rows);
+
+    console.log("Selected Code:", selectedCode);
+    console.log("Loaded Data:", data);
 
     // Find the item with the selected code
     const selectedItem = data.find(item => item.Code === selectedCode);
 
     if (selectedItem) {
-        // Update doingAS based on the AS attribute
+        // Update the `doingAS` flag
         doingAS = selectedItem.AS === "true";
 
-        // Populate each attribute field
-        document.getElementById("highest").value = selectedItem.Highest;
-        document.getElementById("AStar").value = selectedItem.AStar;
-        document.getElementById("A").value = selectedItem.A;
-        document.getElementById("B").value = selectedItem.B;
-        document.getElementById("C").value = selectedItem.C;
-        document.getElementById("D").value = selectedItem.D;
-        document.getElementById("E").value = selectedItem.E;
+        // Populate fields
+        document.getElementById("highest").value = selectedItem.Highest || "";
+        document.getElementById("AStar").value = selectedItem.AStar || "";
+        document.getElementById("A").value = selectedItem.A || "";
+        document.getElementById("B").value = selectedItem.B || "";
+        document.getElementById("C").value = selectedItem.C || "";
+        document.getElementById("D").value = selectedItem.D || "";
+        document.getElementById("E").value = selectedItem.E || "";
 
-        // Update checkbox state based on AS attribute
-        const checkbox = document.getElementById('myCheckbox');
-        checkbox.checked = doingAS; // Reflect the AS status on the checkbox
+        // Update checkbox
+        const checkbox = document.getElementById("myCheckbox");
+        checkbox.checked = doingAS;
 
-        // Update visibility of the A* container based on AS attribute
+        // Update AStar visibility
         updateAStarVisibility();
 
-        // Debugging: Log to console to track state
-        console.log(`Selected Code: ${selectedCode}`);
-        console.log(`doingAS: ${doingAS}`);
-        console.log(`Checkbox checked: ${checkbox.checked}`);
+        console.log("Fields populated successfully.");
     } else {
-        // Handle case where no item was found
-        console.error(`No item found for selected code: ${selectedCode}`);
+        console.error(`No item found for code: ${selectedCode}`);
     }
 }
+
 
 // Function to update the visibility of the A* input based on the checkbox state
 function updateAStarVisibility() {
