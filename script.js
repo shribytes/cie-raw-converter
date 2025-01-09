@@ -96,7 +96,6 @@ function updateAStarVisibility() {
 
     if (doingAS) {
         AStarContainer.style.visibility = 'hidden';
-        AStarInput.value = "1";
     } else {
         AStarContainer.style.visibility = 'visible';
         //AStarInput.value = "";
