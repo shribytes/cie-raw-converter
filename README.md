@@ -11,7 +11,7 @@ https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-u
 Grade threshold tables for International AS and A Level can be found at:  
 https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-advanced/cambridge-international-as-and-a-levels/grade-threshold-tables/
 
-After navigating to your subject, scroll to the final table of the file. Use the "Option" or "Combination of Components" column of the second table to figure out which examinations you have taken. Input the corresponding values into the site along with any other values required.
+If you are manually inputting the thresholds, navigating to your subject then scroll to the final table of the file. Use the "Option" or "Combination of Components" column of the second table to figure out which examinations you have taken. Input the corresponding values into the site along with any other values required.
 
 ### How is my Raw Mark Calculated?
 
